@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Product-A</title>
+  <meta name="description" content="Details page for Product-A">
+  <meta name="author" content="Joseph Choi">
+  <style>
+  </style>
+</head>
+
+<body>
+
+  <form id="CartForm">
+    <input type="submit" value="Add to cart">
+  </form>
+
+  <script type="text/javascript">
+    var urlParams = new URLSearchParams(window.location.search);
+    var promotionCode = urlParams.get('PromotionCode');
+    function formSubmit() {
+      alert('Your promotion code was: ' + promotionCode);
+      return false;
+    }
+    var element = document.getElementById('CartForm');
+    if (element.addEventListener) {
+      element.addEventListener("submit", function (evt) {
+        evt.preventDefault();
+        formSubmit();
+      }, true);
+    }
+    else {
+      element.attachEvent('onsubmit', function (evt) {
+        evt.preventDefault();
+        formSubmit();
+      });
+    }
+  </script>
+</body>
+
+</html>
